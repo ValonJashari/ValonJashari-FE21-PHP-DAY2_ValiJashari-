@@ -27,7 +27,7 @@
     }
 ?>
 <!-- Celsius to Fahrenheit ° F = 9/5 (°C) + 32 -->
-<!-- //Fahrenheit to Celsius ° C = 5/9 (°F - 32) = (°F - 32) / 1.8-->
+<!-- //Fahrenheit to Celsius ° C = 5/9 (° F - 32) = (°F - 32) / 1.8-->
 <form action="" method="post">
 	<table>
 
@@ -73,50 +73,44 @@ if(isset($_POST['btn']))
         if($second_temp_type_name=='celsius')
         {
             $celsius=funct1($value1);
-            echo "Conversation from Fahrenheit(°F) to Celsius (°C)<br>";
-            echo "$value1 °F = $celsius °C <br>";
+            echo "$value1 Fahrenheit = $celsius Celsius";
         }
         else 
         {
-            echo "Wrong convertation of Temperature";
+            echo "$value1 Fahrenheit";
         }
     }
-    if($celsius < 0)
-    {
-        echo "<br>Temperature is under  0°C, so the Weather is freezing, PLEASE DO NOT GO OUT today";
+    function veryCold(){
+        echo "Very Cold";
     }
+    function Cold(){
+        echo "Cold";
+    }
+    ($celsius > 0 && $celsius < 5) ? veryCold():Cold();
+    function Pleasant()
+    {
+        echo "The Weather is PLEASANT Today";
+    }
+    function Warm()
+    {
+        echo "Temperature is between 16°C and 20°C, so The Weather is WARM today";
+    }
+    ($celsius > 11 && $celsius < 16) ? Pleasant():Warm();
 
-    if($celsius >= 0 && $celsius <=5)
+    function Hot()
     {
-        echo "<br>Temperature is between 0°C and 5°C,, so the Weather is Very Cold today";
+        echo "The weather is HOT Today";
+        echo "Temperature is higher than 21°C so The Weather is HOT today";
+
     }
-        
-    elseif($celsius >= 6 && $celsius <=10)
+    function SuperHot()
     {
-        echo "<br>Temperature is between 6°C and 10°C,, so the Weather is Cold Today";
+        echo "Temperature is higher than 48°C, so The Weather is SUPER HOT today";
     }
-        
-    elseif($celsius >=11 && $celsius <=15)
-    {
-        echo "<br>Temperature is between 11°C and 15°C,, so the Weather is PLEASANT Today";
-    }
-       
-    elseif($celsius >=16 && $celsius <=20)
-    {
-        echo "<br>Temperature is between 16°C and 20°C, so The Weather is WARM today";
-    }
-        
-    elseif($celsius >=21 && $celsius <55)
-    {
-        echo "<br>Temperature is  between 21°C and 54°C, so The Weather is HOT today";
-    }
-    elseif ($celsius >=55) {
-        echo "<br>Temperature is: $celsius °C, so the Weather will cook you, PLEASE DO NOT GO OUT today";
-    }
-        
-            
+    ($celsius > 21 && $celsius < 48) ? Hot():SuperHot();
+    
+    
 }
-
                 ?>
 			</td>
 		</tr>
