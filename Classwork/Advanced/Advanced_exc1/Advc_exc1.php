@@ -73,7 +73,9 @@ if(isset($_POST['btn']))
         if($second_temp_type_name=='celsius')
         {
             $celsius=funct1($value1);
-            echo "$value1 Fahrenheit = $celsius Celsius";
+            
+            echo "<br>The temperature in Fahrenheit: $value1 °C.<br>";
+            echo "<br>The converted temperature in Celsius: $celsius °C";
         }
         else 
         {
@@ -87,7 +89,7 @@ if(isset($_POST['btn']))
         {
             $fahrenheit=funct2($value1);
             echo "<br>The temperature in Celsius: $value1 °C.<br>";
-            echo "The converted temperature in Fahrenheit: $fahrenheit °F";
+            echo "<br>The converted temperature in Fahrenheit: $fahrenheit °F";
             
        
         }
